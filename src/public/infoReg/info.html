@@ -1,0 +1,18 @@
+<div class="container">
+        <h1> User Registered Information </h1>
+        <div>
+                <div id="signup" ui-sref-active="active" ng-if="!info.completed">
+                        Not Signed Up Yet.
+                        <a ui-sref="public.signup"> Sign up Now!.</a>
+                </div>
+                <div id="info">
+                        First name: {{ info.user.firstname}} <br> Last name: {{ info.user.lastname}} <br> Email: {{ info.user.email}}
+                        <br> Phone: {{ info.user.phone }} <br> Favorite: {{info.user.favorite}}
+                         {{info.user.favoritefoodname}}
+                        <img class="img-responsive" width="250" height="150" ng-src="images/menu/{{info.user.menucategory}}/{{info.user.menucategory}}.jpg"
+                                alt="{{info.user.favorite}}">
+
+                                   {{info.user.favoritefooddescription}}
+                </div>
+        </div>
+</div>

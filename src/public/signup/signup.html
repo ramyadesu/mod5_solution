@@ -1,0 +1,65 @@
+<!--<div class="col-lg-12 container ">
+  <div class="col-lg-6">-->
+    <h1>User Registration Form</h1>
+    <fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+        First Name:
+        <input type="text" name="firstname" placeholder="entry firstname" ng-model="reg.user.firstname" required
+          minlength="4" ng-maxlength="15">
+          {{ reg.user.firstname }}
+          <span ng-if="(  regForm.firstname.$error.required) && regForm.firstname.$touched">
+            First name must be at least 4 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            First name must not be longer than 10 characters
+          </span>
+          <br> Last Name:
+          <input type="text" name="lastname" placeholder="entry lastname" ng-model="reg.user.lastname" required
+            minlength="2" ng-maxlength="15">
+            {{ reg.user.lastname }}
+            <span ng-if="(  regForm.lastname.$error.required) && regForm.lastname.$touched">
+            Last name must be at least 4 characters long
+          </span>
+            <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+            Username must not be longer than 10 characters
+          </span>
+            <br> Email Address: <input type="email" name="email" placeholder="Email" ng-model="reg.user.email" required>
+            <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+            <br> TelePhone Number:
+            <input type="text" name="phone" placeholder="Phone ###-###-####" ng-model="reg.user.phone"
+              pattern="(\d{3})-(\d{3})-(\d{4})">
+              <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+              <br> Favorite Dish: <input type="text" name="favoritedish" ng-model='reg.user.favoritedish' ng-keyup="reg.search();">
+                   {{reg.user.favoritedish | uppercase}}  {{reg.favoritechose}}
+              <span ng-if="regForm.favoritedish && regForm.favoritedish.$touched && regForm.$valid ">
+
+              </span>
+              <span id="NoSuchMenu" ng-if="reg.matched">
+
+              </span>
+              <br>
+              <button ng-disabled="regForm.$invalid" ng-show="regForm.$valid" ng-click="reg.submit()">Submit</button>
+              <div style="margin-top: 10px;">
+                Form valid? {{ regForm.$valid }}
+              </div>
+      </form>
+    </fieldset>
+
+
+    <div id="info" ng-if="reg.completed">
+      First name: {{ reg.user.firstname}} <br>
+       Last name: {{ reg.user.lastname}} <br>
+       Email: {{ reg.user.email}} <br> Phone:
+      {{ reg.user.phone }} <br> Favorite: {{reg.favoritechose}}  <br>
+         Your Data has been saved !
+    </div>
+  </div>
+  <!--<div class="col-lg-6">
+    <menu-items items="reg.items"></menu-items>
+  </div>
+</div>-->
